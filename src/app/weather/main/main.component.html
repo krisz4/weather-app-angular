@@ -1,0 +1,10 @@
+<section class="hero is-light is-fullheight">
+<app-navbar [selectedIndex]="selectedIndex" [locations]="locationsString" (navigationEvent)="changeLocation($event)" (deleteLocationEvent)="deleteLocation($event)"></app-navbar>
+
+  <div *ngIf="locations[selectedIndex]?.name">
+    <app-charts [place]="locations[selectedIndex]"></app-charts>
+  </div>
+  <div *ngIf="!locations[selectedIndex]?.name">
+    <app-add-location (newLocationEvent)="addLocation($event)" (closeModalEvent)="selectedIndex=0"></app-add-location>
+  </div>
+</section>

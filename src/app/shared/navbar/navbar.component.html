@@ -1,0 +1,24 @@
+<div class="tabs is-boxed">
+    <ul>
+        <li *ngFor="let location of locationsParsed; let i = index" [ngClass]="{
+            'is-active': selectedIndex===i
+          }">
+            <a>
+                <div (click)="changeLocation(i)">
+                    <span class="icon is-small"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+                    <span>{{location.name}}</span>
+                </div>
+                <span (click)="deleteLocation(i)" class="icon is-small mr-1 ml-1"><i class="far fa-trash-alt"></i></span>
+            </a>
+        </li>
+        <li>
+            <a>
+                <div (click)="changeLocation(locationsParsed.length)">
+                    <span class="icon is-small"><i class="far fa-plus-square" aria-hidden="true"></i></span>
+                    <span style="font-weight: bold;color: rgb(1, 156, 14);">Add new location</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <button class="button is-danger" (click)="logout()">Kijelentkezés</button>
+</div>

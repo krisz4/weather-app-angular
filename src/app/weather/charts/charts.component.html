@@ -1,0 +1,41 @@
+<section class="hero is-fullheight" style="overflow: auto;">
+    <div class="card m-2">
+        <div class="card-content" style="overflow: auto;">
+            <p class="title">
+                {{aktPlace.name}}
+            </p>
+            <p class="subtitle">
+                Hely
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>hőmérséklet</th>
+                        <th>páratartalom</th>
+                        <th>légnyomás</th>
+                        <th> szélerősség</th>
+                        <th> szélirány</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{currentWeather?.main?.temp}}°C</td>
+                        <td>{{currentWeather?.main?.humidity}}%</td>
+                        <td>{{currentWeather?.main?.pressure}}Pa</td>
+                        <td>{{currentWeather?.wind?.speed}}Km/h</td>
+                        <td>{{currentWeather?.wind?.deg}}°</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                Data from openweather
+            </p>
+        </footer>
+    </div>
+    <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [legend]="legend" [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel" [timeline]="timeline" [results]="chartData">
+    </ngx-charts-line-chart>
+</section>
